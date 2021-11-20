@@ -1,0 +1,251 @@
+<!DOCTYPE html>
+<html -webkit-tap-highlight-color: transparent>
+
+<head>
+    <meta name="viewport"
+        content="width=device-width, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0, user-scalable=no">
+    <meta charset="utf-8">
+    <title>外出登记二维码</title>
+    <!-- <link rel="stylesheet" href="css/outSchool.css" type="text/css"> -->
+    <style>
+        body {
+            margin: 0px;
+            font-family: -apple-system, BlinkMacSystemFont, Helvetica Neue, Helvetica, Segoe UI, Arial, Roboto, PingFang SC, miui, Hiragino Sans GB, Microsoft Yahei, sans-serif;
+            background: #f5f5f5;
+        }
+
+        /* div {
+            display: block;
+        } */
+
+        .van-cell-group__title {
+            padding: 16px 16px 8px;
+            color: #969799;
+            font-size: 14px;
+            line-height: 16px;
+        }
+
+        .van-cell--large .van-cell__title {
+            font-size: 16px;
+        }
+
+        .van-cell.van-cell--large {
+            padding-top: 12px;
+            padding-bottom: 12px;
+        }
+
+        .van-cell {
+            position: relative;
+            display: flex;
+            box-sizing: border-box;
+            width: 100%;
+            padding: 10px 16px;
+            overflow: hidden;
+            color: #323233;
+            font-size: 14px;
+            line-height: 24px;
+            background-color: #fff;
+        }
+
+        .van-cell__value {
+            position: relative;
+            overflow: hidden;
+            color: #969799;
+            text-align: right;
+            vertical-align: middle;
+            word-wrap: break-word;
+        }
+
+        .van-cell--borderless:after,
+        .van-cell:last-child:after {
+            display: none;
+        }
+
+        .van-cell:after {
+            position: absolute;
+            box-sizing: border-box;
+            content: " ";
+            pointer-events: none;
+            right: 16px;
+            bottom: 0;
+            left: 16px;
+            border-bottom: 1px solid #ebedf0;
+            transform: scaleY(.5);
+        }
+
+        .van-cell__title,
+        .van-cell__value {
+            flex: 1;
+        }
+    </style>
+
+</head>
+
+<body>
+    <div id="app" data-v-app="">
+        <div id="app">
+            <div class="page-container" data-v-fae8cc3a="">
+                <div id="show_time" align="center"
+                    style="background-color: #fff;font-size: 20px; text-align: center;padding: 20px 0;">
+                </div>
+                <script>
+                    var int = self.setInterval("clock()", 50);
+                    function clock() {
+                        let now = new Date();
+                        let year = now.getFullYear();
+                        let month = (now.getMonth() + 1) >= 10 ? (now.getMonth() + 1) : '0' + (now.getMonth() + 1);
+                        let Day = now.getDate() >= 10 ? now.getDate() : '0' + now.getDate();
+                        let Hour = now.getHours() >= 10 ? now.getHours() : '0' + now.getHours();
+                        let Minutes = now.getMinutes() >= 10 ? now.getMinutes() : '0' + now.getMinutes();
+                        let second = now.getSeconds() >= 10 ? now.getSeconds() : '0' + now.getSeconds();
+                        document.getElementById("show_time").innerHTML = year + "-" + month + "-" + Day + " " + Hour + ":" + Minutes + ":" + second;
+                    }
+                </script>
+                <div class="ex-qrcode center qrcode" align="center" style="background-color: #f5f5f5" width="180"
+                    height="180" data-v-544d011e="" data-v-fae8cc3a="">
+                    <img style="height: 120px;width: 120px;margin-top: 20px;margin-bottom: 20px;" src="./img/1.png">
+                </div>
+                <div>
+                    <div class="van-cell-group__title" style="background-color:#f5f5f5">外出时间 </div>
+                    <div class="van-cell-group van-hairline--top-bottom mg-b">
+                        <div class="van-cell van-cell--large" data-v-fae8cc3a="">
+                            <!---->
+                            <div class="van-cell__title">
+                                <span>离校时间</span>
+                                <!---->
+                            </div>
+                            <div class="van-cell__value">
+                                <span id="ymd" class="text-black" style="font-weight: bold;color: #333!important;">
+                                    <script type="text/javascript">
+                                        function getQueryParams(qs) {
+                                            qs = qs.split('+').join(' ');
+                                            var params = {},
+                                                tokens,
+                                                re = /[?&]?([^=]+)=([^&]*)/g;
+                                            while (tokens = re.exec(qs)) {
+                                                params[decodeURIComponent(tokens[1])] = decodeURIComponent(tokens[2]);
+                                            }
+                                            return params;
+                                        }
+                                        var query = getQueryParams(document.location.search);
+                                        var outTime = query.outTime;
+                                        document.write(outTime)
+                                    </script>
+                                </span>
+                            </div>
+                            <!---->
+                            <!---->
+                        </div>
+                        <div class="van-cell van-cell--large" data-v-fae8cc3a="">
+                            <!---->
+                            <div class="van-cell__title">
+                                <span>回校时间</span>
+                                <!---->
+                            </div>
+                            <div class="van-cell__value">
+                                <span id="ymd1" class="text-black" style="font-weight: bold; color: #333!important;">
+                                    <script type="text/javascript">
+                                        function getQueryParams(qs) {
+                                            qs = qs.split('+').join(' ');
+                                            var params = {},
+                                                tokens,
+                                                re = /[?&]?([^=]+)=([^&]*)/g;
+                                            while (tokens = re.exec(qs)) {
+                                                params[decodeURIComponent(tokens[1])] = decodeURIComponent(tokens[2]);
+                                            }
+                                            return params;
+                                        }
+                                        var query = getQueryParams(document.location.search);
+                                        var inTime = query.inTime;
+                                        document.write(inTime)
+                                    </script>
+                                </span>
+                            </div>
+                            <!---->
+                            <!---->
+                        </div>
+                    </div>
+                    <div class="van-cell-group__title" style="background-color: #f5f5f5; padding-top: 20px;">学生信息</div>
+                    <div class="van-cell-group van-hairline--top-bottom">
+                        <div class="van-cell" data-v-fae8cc3a="">
+                            <!---->
+                            <div class="van-cell__title">
+                                <span>姓名</span>
+                                <!---->
+                            </div>
+                            <div class="van-cell__value">
+                                <span>朱婷婷
+
+                                </span>
+                            </div>
+                            <!---->
+                            <!---->
+                        </div>
+                        <div class="van-cell" data-v-fae8cc3a="">
+                            <!---->
+                            <div class="van-cell__title">
+                                <span>学号</span>
+                                <!---->
+                            </div>
+                            <div class="van-cell__value">
+                                <span>
+                                    <span>2112008055
+
+                                    </span>
+                                </span>
+                            </div>
+                            <!---->
+                            <!---->
+                        </div>
+                        <div class="van-cell" data-v-fae8cc3a="">
+                            <!---->
+                            <div class="van-cell__title">
+                                <span>学院</span>
+                                <!---->
+                            </div>
+                            <div class="van-cell__value">
+                                <span>
+                                    <span>管理学院
+
+                                    </span>
+                                </span>
+                            </div>
+                            <!---->
+                            <!---->
+                        </div>
+                        <div class="van-cell" data-v-fae8cc3a="">
+                            <!---->
+                            <div class="van-cell__title">
+                                <span>专业</span>
+                                <!---->
+                            </div>
+                            <div class="van-cell__value">
+                                <span>工商管理
+
+                                </span>
+                            </div>
+                            <!---->
+                            <!---->
+                        </div>
+                        <div class="van-cell" data-v-fae8cc3a="">
+                            <!---->
+                            <div class="van-cell__title">
+                                <span>班级</span>
+                                <!---->
+                            </div>
+                            <div class="van-cell__value">
+                                <span>20普研学硕
+
+                                </span>
+                            </div>
+                            <!---->
+                            <!---->
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+
+</html>

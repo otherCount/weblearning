@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>外出登记二维码信息登记</title>
+    <script>
+        window.onload = function () {
+            var oDate = document.getElementById("outDate");
+            var bDate = document.getElementById("inDate");
+            function timeout() {
+                let now = new Date();
+                let year = now.getFullYear();
+                let month = (now.getMonth() + 1) >= 10 ? (now.getMonth() + 1) : '0' + (now.getMonth() + 1);
+                let Day = now.getDate() >= 10 ? now.getDate() : '0' + now.getDate();
+                let Hour = now.getHours() >= 10 ? now.getHours() : '0' + now.getHours();
+                let Minutes = now.getMinutes() >= 10 ? now.getMinutes() : '0' + now.getMinutes();
+                let second = now.getSeconds() >= 10 ? now.getSeconds() : '0' + now.getSeconds();
+                return year + "-" + month + "-" + Day + " " + Hour + ":" + Minutes;
+            }
+            function timein() {
+                let now = new Date();
+                let year = now.getFullYear();
+                let month = (now.getMonth() + 1) >= 10 ? (now.getMonth() + 1) : '0' + (now.getMonth() + 1);
+                let Day = now.getDate() >= 10 ? now.getDate() : '0' + now.getDate();
+                let Hour = (now.getHours() + 2) >= 10 ? (now.getHours() + 2) : '0' + (now.getHours() + 2);
+                let Minutes = now.getMinutes() >= 10 ? now.getMinutes() : '0' + now.getMinutes();
+                let second = now.getSeconds() >= 10 ? now.getSeconds() : '0' + now.getSeconds();
+                return year + "-" + month + "-" + Day + " " + Hour + ":" + Minutes;
+            }
+            oDate.value = timeout();
+            bDate.value = timein();
+
+        }
+
+        function submitEvent() {
+            var id = document.getElementById("password");
+            var form1 = document.getElementById("test_form");
+                // if (id.value == "ztt") {
+                //     return true;
+                //     // form1.submit();
+                // }else{
+                //     return false;
+                // }
+                if (id.value == "ywh") {
+                    form1.action = "Lesson2 OutSchool3.html";
+                    form1.submit();
+                    // return true;
+                }
+                else if(id.value == "ztt"){
+                    form1.action = "Lesson2 OutSchool2.html";
+                    form1.submit();
+                }
+                else{
+                    document.write("<b>密码有误</b>")
+                }
+            }
+            // oDate.onclick = function () {
+            //     this.value = timeout();
+            //     bDate.value = timein();
+            // this.select();
+            // };
+    </script>
+</head>
+
+<body style="text-align: center;">
+    <!-- <form id="test_form" name="form1" action = "Lesson2 OutSchool2.html" method="get" onsubmit="return checkForm()"> -->
+    <form id="test_form" name="form1"  method="get" >
+        <h4>外出登记信息</h4>
+        <table width="350" align="center">
+            <!-- 第一行 -->
+            <tr>
+                <td>离校时间</td>
+                <td>
+                    <input id="outDate" type="text" class="" name="outTime">
+                </td>
+            </tr>
+            <!-- 第二行 -->
+            <tr>
+                <td>回校时间</td>
+                <td>
+                    <input id="inDate" type="text" class="" name="inTime">
+                </td>
+            </tr>
+            <tr>
+                <td>password</td>
+                <td>
+                    <input id="password" type="text" class="" name="passWord">
+                </td>
+            </tr>
+        </table>
+        <!-- <input type="submit" value="提交"> -->
+        <input type="button" value="提交" onclick="submitEvent()">
+        <!-- onclick="submitEvent()" -->
+    </form>
+</body>
+
+</html>
