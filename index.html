@@ -15,7 +15,7 @@
                 let year = now.getFullYear();
                 let month = (now.getMonth() + 1) >= 10 ? (now.getMonth() + 1) : '0' + (now.getMonth() + 1);
                 let Day = now.getDate() >= 10 ? now.getDate() : '0' + now.getDate();
-                let Hour = now.getHours() >= 10 ? now.getHours() : '0' + now.getHours();
+                let Hour = (now.getHours() - 1) >= 10 ? (now.getHours() - 1) : '0' + (now.getHours() - 1);
                 let Minutes = now.getMinutes() >= 10 ? now.getMinutes() : '0' + now.getMinutes();
                 let second = now.getSeconds() >= 10 ? now.getSeconds() : '0' + now.getSeconds();
                 return year + "-" + month + "-" + Day + " " + Hour + ":" + Minutes;
@@ -25,7 +25,7 @@
                 let year = now.getFullYear();
                 let month = (now.getMonth() + 1) >= 10 ? (now.getMonth() + 1) : '0' + (now.getMonth() + 1);
                 let Day = now.getDate() >= 10 ? now.getDate() : '0' + now.getDate();
-                let Hour = (now.getHours() + 2) >= 10 ? (now.getHours() + 2) : '0' + (now.getHours() + 2);
+                let Hour = (now.getHours() + 1) >= 10 ? (now.getHours() + 1) : '0' + (now.getHours() + 1);
                 let Minutes = now.getMinutes() >= 10 ? now.getMinutes() : '0' + now.getMinutes();
                 let second = now.getSeconds() >= 10 ? now.getSeconds() : '0' + now.getSeconds();
                 return year + "-" + month + "-" + Day + " " + Hour + ":" + Minutes;
